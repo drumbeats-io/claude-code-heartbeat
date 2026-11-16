@@ -33,6 +33,15 @@ FAILURE  run_id=0e9ab6fd-1fbd-45a3-b9ad-86b6240ff261   21:43:39.664 UTC   durati
 
 `SessionStart` fired before authentication, `StopFailure` fired on `API Error: 401 OAuth access token has expired`, and the failure ping opened an incident.
 
+In a cloud scheduled task (16 November 2026, environment allowlist including `api.drumbeats.io`), the repository's `.claude/settings.json` loaded with no extra setup:
+
+```text
+START    run_id=23508ba6-172f-5253-917d-377133ea0f29   01:42:19.457 UTC   source=startup
+SUCCESS  run_id=23508ba6-172f-5253-917d-377133ea0f29   01:42:24.229 UTC   duration_ms=4770
+```
+
+Of three cloud runs, the first one in a fresh environment fired `SessionStart` twice with two different session ids, and only the second reached `Stop`. If your monitor has a run timeout, expect one stray timed-out start after a new environment.
+
 ## Licence
 
 MIT, see [LICENSE](LICENSE).
