@@ -20,7 +20,7 @@ Every ping carries `run_id` = the hook's `session_id`, so the start and the fini
 
 ## Network allowlist
 
-A cloud scheduled task's shell runs behind a network allowlist, and `api.drumbeats.io` is not in the default list. Add it (Custom, with "Also include default list" checked), or the `curl` in the script fails silently.
+A cloud scheduled task's shell runs behind a network allowlist, and `api.drumbeats.io` is not in the default list. Keep the environment at Limited with "Allow package managers" checked and add `api.drumbeats.io` to its allowed domains, or the `curl` in the script fails silently with `403` and `x-deny-reason: host_not_allowed`.
 
 ## Observed run
 
